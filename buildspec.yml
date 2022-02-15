@@ -1,0 +1,18 @@
+version: 0.0.1
+
+phases:
+  install:
+    runtime-version:
+      java: corretto11
+  build:
+    commands:
+      - ./gradlew bootjar
+  post_build:
+    commands:
+      - echo Build complete
+artifacts:
+  files:
+    - build/libs/*.jar
+    - scripts/*.sh
+    - appspec.yml
+  discard-paths: yes
